@@ -10,7 +10,7 @@ module.exports = {
         autoIncrement: true,
       },
       title: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(255),
         allowNull: false,
       },
       content: {
@@ -22,13 +22,20 @@ module.exports = {
         allowNull: false,
         references: {
           model: 'users',
-          key: 'id',
+          key: 'id'
         },
         field: 'user_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      primaryKey: true,
+      published: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
     });
   },
 
