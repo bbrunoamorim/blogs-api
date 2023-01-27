@@ -11,7 +11,6 @@ const generateToken = (payload) => {
   try {
     return jwt.sign(payload, TOKEN_SECRET, jwtConfig);
   } catch (err) {
-    console.log(err.message);
     throw new Error('Falha ao gerar token');
   }
 };

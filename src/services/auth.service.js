@@ -11,9 +11,7 @@ const userLogin = async (email, _password) => {
     return null;
   }
 
-  const payload = { email };
-  console.log(payload);
-  const token = jwt.generateToken(payload);
+  const token = jwt.generateToken({ email });
   return token;
 };
 
