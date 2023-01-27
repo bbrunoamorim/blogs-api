@@ -11,7 +11,7 @@ const generateToken = (payload) => {
   try {
     return jwt.sign(payload, TOKEN_SECRET, jwtConfig);
   } catch (err) {
-    throw new Error('Falha ao gerar token');
+    console.log(err.message);
   }
 };
 
@@ -24,7 +24,7 @@ const decodeToken = (token) => {
     const result = jwt.verify(token, TOKEN_SECRET);
     return result;
   } catch (err) {
-    throw new Error('Invalid signature');
+    console.log(err.message);
   }
 };
 
