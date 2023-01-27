@@ -1,18 +1,20 @@
 const jwt = require('../utils/jwt');
 
-const User = require('../models/User');
+const { User } = require('../models');
 
 const userLogin = async (email, password) => {
   const user = await User.findOne({
-    where: { email, password },
+    where: { email },
   });
 
   if (!user) {
     return { type: 'BAD_REQUEST', message: 'Invalid fields' };
   }
 
-  const token = jwt.generateToken(email);
-  return { type: null, message: token };
+  const payload = { email, password };
+  console.log(payload);
+  const token = jwt.generateToken(payload);
+  return token;
 };
 
 module.exports = {

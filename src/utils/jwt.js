@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const TOKEN_SECRET = process.env.JWT_SECRET;
+const TOKEN_SECRET = process.env.JWT_SECRET || 'megasenha';
 
 const jwtConfig = {
   algorithm: 'HS256',
@@ -9,8 +9,9 @@ const jwtConfig = {
 
 const generateToken = (payload) => {
   try {
-    return jwt.sign(payload.dataValues, TOKEN_SECRET, jwtConfig);
-  } catch (error) {
+    return jwt.sign(payload, TOKEN_SECRET, jwtConfig);
+  } catch (err) {
+    console.log(err.message);
     throw new Error('Falha ao gerar token');
   }
 };
