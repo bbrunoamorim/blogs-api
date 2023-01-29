@@ -5,7 +5,15 @@ const Category = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
+  },
+  {
+    tableName: 'categories',
+    underscored: true,
+    timestamps: false,
   });
 
   return CategoryTable;
