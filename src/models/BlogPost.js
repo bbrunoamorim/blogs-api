@@ -37,12 +37,12 @@ const BlogPost = (sequelize, DataTypes) => {
     }
   );
 
-    BlogPostTable.associate = (models) => {
-      BlogPostTable.belongsTo(models.User, {
-        as: 'user',
-        foreignKey: 'user_id',
-      });
-    };
+  BlogPostTable.associate = (models) => {
+    BlogPostTable.belongsTo(models.User, {
+      as: 'user',
+      foreignKey: 'user_id',
+    });
+  };
 
   return BlogPostTable;
 };

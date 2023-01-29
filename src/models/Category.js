@@ -10,11 +10,11 @@ const Category = (sequelize, DataTypes) => {
       allowNull: false,
     }
   },
-  {
-    tableName: 'categories',
-    underscored: true,
-    timestamps: false,
-  });
+    {
+      tableName: 'categories',
+      underscored: true,
+      timestamps: false,
+    });
 
   return CategoryTable;
 };
