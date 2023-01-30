@@ -4,6 +4,7 @@ const BlogPost = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     title: {
       type: DataTypes.STRING,
@@ -24,10 +25,12 @@ const BlogPost = (sequelize, DataTypes) => {
     published: {
       type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     updated: {
       type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
   },
     {

@@ -13,6 +13,8 @@ const authMiddleware = (req, res, next) => {
     return res.status(401).json({ message: 'Expired or invalid token' });
   }
 
+  req.body.userId = user.userId;
+
   return next();
 };
 
