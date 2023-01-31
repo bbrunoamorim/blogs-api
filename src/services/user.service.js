@@ -8,7 +8,7 @@ const createUser = async ({ displayName, email, password, image }) => {
 
 const getAll = async () => {
   const users = await User.findAll({
-    attributes: ['id', 'displayName', 'email', 'image'],
+    attributes: { exclude: ['password'] },
   });
   return users;
 };
@@ -16,7 +16,7 @@ const getAll = async () => {
 const getById = async (id) => {
   const user = await User.findOne({
     where: { id },
-    attributes: ['id', 'displayName', 'email', 'image'],
+    attributes: { exclude: ['password'] },
   });
   return user;
 };
