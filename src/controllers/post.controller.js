@@ -55,10 +55,26 @@ const deletePost = async (req, res) => {
   return res.status(204).end();
 };
 
+const searchPost = async (req, res) => {
+  const { q } = req.query;
+
+  if (!q) {
+    const result = await postService.getAll();
+    return res.status(200).json(result);
+  }
+
+  const result = await postService.searchPost(q);
+
+  if (!result) return res.status(200).json([]);
+
+  return res.status(200).json(result);
+};
+
 module.exports = {
   createPost,
   getAll,
   getById,
   updatePost,
   deletePost,
+  searchPost,
 };
