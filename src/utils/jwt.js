@@ -11,7 +11,7 @@ const generateToken = (payload) => {
   try {
     return jwt.sign(payload, TOKEN_SECRET, jwtConfig);
   } catch (err) {
-    console.log(err.message);
+    return err.message;
   }
 };
 
@@ -24,7 +24,7 @@ const decodeToken = (token) => {
     const result = jwt.verify(token, TOKEN_SECRET);
     return result;
   } catch (err) {
-    console.log(err.message);
+    return err.message;
   }
 };
 
