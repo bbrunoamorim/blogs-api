@@ -20,7 +20,6 @@ const createPost = async (title, content, categoryIds, userId) => {
 
     return createdPost;
   } catch (err) {
-    console.log(err.message);
     await t.rollback();
   }
 };

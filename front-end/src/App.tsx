@@ -6,8 +6,8 @@ export default function App(): ReactElement {
 	return (
 		<BrowserRouter>
 			<Suspense>
-				<Routes>
-				</Routes>
+				{/* <Routes> */}
+				{/* </Routes> */}
 			</Suspense>
 		</BrowserRouter>
 	)
